@@ -1,0 +1,48 @@
+package com.example.attendance_management;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
+public class TeacherLogin extends AppCompatActivity {
+    EditText userId,password;
+    Intent intent;
+    FirebaseAuth firebaseAuth;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_teacher_login);
+        userId=(EditText)findViewById(R.id.editText);
+        password=(EditText)findViewById(R.id.editText2);
+        intent=new Intent(TeacherLogin.this,TeacherActivity.class);
+        firebaseAuth = FirebaseAuth.getInstance();
+    }
+    public void doOnClick(View view) {
+        firebaseAuth.signInWithEmailAndPassword(userId.getText().toString(),password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(TeacherLogin.this, "Signin successful", Toast.LENGTH_SHORT).show();
+                    startActivity(intent);
+
+
+                }else{
+                    Toast.makeText(TeacherLogin.this, "Wrong Credentials", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+}

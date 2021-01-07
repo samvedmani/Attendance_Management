@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity"
+    android:background="@mipmap/back">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You want to login as"
+        android:textSize="40dp"
+        android:layout_marginTop="70dp"
+        android:padding="10dp"
+        android:textColor="#000"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"/>
+    <Button
+        android:layout_width="400dp"
+        android:layout_height="80dp"
+        android:text="Teacher"
+        android:id="@+id/teacherButton"
+        android:layout_above="@+id/studentButton"
+        android:layout_marginBottom="80dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="fn"
+        android:textSize="40dp"
+        android:textAllCaps="false"
+        android:background="@drawable/shapeemail"/>
+
+
+    <Button
+        android:layout_width="400dp"
+        android:layout_height="80dp"
+        android:text="Student"
+        android:id="@+id/studentButton"
+        android:layout_marginBottom="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="fn"
+        android:textSize="40dp"
+        android:textAllCaps="false"
+        android:background="@drawable/shapeemail"/>
+
+    <Button
+        android:layout_width="400dp"
+        android:layout_height="80dp"
+        android:text="Admin"
+        android:id="@+id/adminButton"
+        android:layout_above="@+id/teacherButton"
+        android:layout_marginBottom="80dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="fn"
+        android:textSize="40dp"
+        android:textAllCaps="false"
+        android:background="@drawable/shapeemail"/>
+
+
+
+
+</RelativeLayout>
